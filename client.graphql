@@ -1,0 +1,145 @@
+mutation createUser {
+ createUser(input:{ firstName:"Mohammed", lastName:"Ali", age:20,username:"moh_ali2", password:"P@ssw0rd" }){
+  username
+
+}
+}
+
+
+mutation loginUser($userInput: UserLoginInput!){
+  loginUser(input:$userInput){
+    token
+    error
+  }
+}
+
+mutation CreatePost {
+  createPost(content:"New Post", token:""){
+    id,
+    error
+    content
+    user {
+      firstName
+  }
+  }
+}
+
+query GetPost($token:String!, $id:ID!){
+  getPost(id: $id, token:$token){
+    content
+    user{
+      firstName
+    }
+  }
+}
+
+
+
+
+/////////////////////////////shalaby try ///////////////////////////////
+mutation usersMutations {
+  createUser(input:{firstName:"mohamed",lastName:"Shalaby",age:25,username:"shalaby",password:"123456"}) {
+   username
+  }
+}
+
+
+mutation usersMutations {
+  createUser(input:{firstName:"mohamed",lastName:"Shalaby",age:25,username:"shalaby",password:"123456"}) {
+   id
+   error
+  }
+}
+
+//////////////////////////login/////////////////////////////////
+mutation loginUser($userInput: UserLoginInput!){
+  loginUser(input:$userInput){
+    token
+    error
+  }
+}
+
+varible
+
+{
+  "userInput": {
+    "username": "shalaby",
+    "password": "123456"
+  }
+}
+
+
+
+/////////////////////////////  create post//////////////////////
+
+mutation CreatePost {
+  createPost(content: "New Post", token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjNiMzZkODgxNDM3MDNjNTgyYzA4MGYiLCJpYXQiOjE2NDgwNTEzNzR9.JVQgDYQURv_26YxaYhR27oOdJaxLgzZKDeu_swLZ-9A") {
+    id
+    error
+    content
+    user {
+      firstName
+    }
+  }
+}
+
+//////////////////////////delete post /////////////////////
+
+
+mutation deletePost {
+  deletePost(id: "623b4573ea8b4bf7b65f50c0",token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjNiMzZkODgxNDM3MDNjNTgyYzA4MGYiLCJpYXQiOjE2NDgwNTEzNzR9.JVQgDYQURv_26YxaYhR27oOdJaxLgzZKDeu_swLZ-9A") {
+   id
+    user {
+      firstName
+    }
+  }
+}
+
+
+//////////////////////////////////////////////////////////////////update//////////////////////////////
+
+mutation updatePost {
+  updatePost(id:"623b44de2d5a989e114596de"content: "update", token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjNiMzZkODgxNDM3MDNjNTgyYzA4MGYiLCJpYXQiOjE2NDgwNTEzNzR9.JVQgDYQURv_26YxaYhR27oOdJaxLgzZKDeu_swLZ-9A") {
+    id
+    error
+    content
+    user {
+      firstName
+    }
+  }
+}
+
+
+
+////////////////////////////////////////////////get/////////////////////////////
+
+query getPost {
+  getPost(id:"623b44de2d5a989e114596de" token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjNiMzZkODgxNDM3MDNjNTgyYzA4MGYiLCJpYXQiOjE2NDgwNTEzNzR9.JVQgDYQURv_26YxaYhR27oOdJaxLgzZKDeu_swLZ-9A") {
+    id
+    error
+    content
+    user {
+      firstName
+    }
+  }
+}
+
+//////////////////////////////////////////gets///////////////////////
+
+
+
+
+
+
+
+query getPosts {
+  getPosts(token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjNiMzZkODgxNDM3MDNjNTgyYzA4MGYiLCJpYXQiOjE2NDgwNTEzNzR9.JVQgDYQURv_26YxaYhR27oOdJaxLgzZKDeu_swLZ-9A") {
+    id
+    error
+    content
+    user {
+      firstName
+    }
+  }
+}
+
